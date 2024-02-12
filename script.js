@@ -1,6 +1,7 @@
 let textoEntrada = document.getElementById('textoEntrada');
 let textoSaida = document.getElementById('textoSaida');
 let mensagemNaoEncontrada = document.getElementById('mensagemNaoEncontrada');
+let 
 
 function validar(str) {
     let letraUnicode = str.charCodeAt(0);
@@ -13,8 +14,12 @@ function validar(str) {
 function criptografar() {
     let textoDescriptografado = textoEntrada.value;
     let textoCriptografado = '';
-    
     let strLength = textoDescriptografado.length;
+
+    if (strLength == 0) {
+        mensagemNaoEncontrada.style.display = 'initial';
+        return;
+    }
 
     for (let i = 0; i < strLength; i++) {
         let letra = textoDescriptografado[i];
@@ -45,14 +50,22 @@ function criptografar() {
         }
     };
 
-    mensagemNaoEncontrada.innerHTML = textoCriptografado;
+    textoSaida.innerHTML = textoCriptografado;
+    mensagemNaoEncontrada.style.display = 'none';
 }
 
 function descriptografar() {
     let textoCriptografado = textoEntrada.value;
     let textoDescriptografado = '';
+    let strLength = textoDescriptografado.length;
 
-    mensagemNaoEncontrada.innerHTML = textoCriptografado;
+    if (strLength == 0) {
+        mensagemNaoEncontrada.style.display = 'initial';
+        return;
+    }
+
+    textoSaida.innerHTML = textoCriptografado;
+    mensagemNaoEncontrada.style.display = 'none';
 }
 
 function copiar() {

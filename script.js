@@ -87,7 +87,7 @@ function descriptografar() {
         let letra = textoCriptografado[i];
         let keyNotFound = true;
         
-        if (letra != ' ' && !validar) {
+        if (letra != ' ' && !validar(letra)) {
             mensagemNaoEncontrada.style.display = 'initial';
             alert('Texto inválido!\nUse apenas letras minúsculas e sem acento.\nNão utilize caracteres especiais.');
             return;

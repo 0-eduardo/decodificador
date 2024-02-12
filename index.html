@@ -13,20 +13,23 @@
 
     <main>
 
-        <div class="input">
-            <input type="text" placeholder="Digite seu texto" spellcheck="false">
+        <div class="inputArea">
+            <input type="text" placeholder="Digite seu texto" spellcheck="false" id="textoEntrada">
 
             <p><img src="images/ponto-interrogacao.png" alt="ponto de interrogacao">Apenas letras minúsculas e sem acento.</p>
-            <button class="criptografar">Criptografar</button>
-            <button class="descriptografar">Descriptografar</button>
+
+            <button class="criptografar" onclick="criptografar()">Criptografar</button>
+            <button class="descriptografar" onclick="descriptografar()">Descriptografar</button>
         </div>
         
-        <div class="output">
-            <div class="texto-criptografado">
+        <div class="outputArea">
+            <div id="mensagemNaoEncontrada">
                 <img src="images/sem-mensagem.png" alt="">
                 <h1>Nenhuma mensagem encontrada</h1>
                 <p>Digite um texto que você deseja criptografar ou descriptografar.</p>
             </div>
+
+            <p id="textoSaida"></p>
             <button class="copiar">Copiar</button>
         </div>
     </main>

@@ -26,8 +26,6 @@ function validar(str) {
 function verificarCripto(textoCriptografado, posicao, key, i) {
     let letra = textoCriptografado[posicao];
 
-    console.log(textoCriptografado + ' ' + posicao + ' ' + key + ' ' + i)
-
     if (letra == key[i]) {
         if (i == key.length-1)
         {

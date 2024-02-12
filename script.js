@@ -33,7 +33,7 @@ function verificarCripto(textoCriptografado, posicao, key, i) {
         {
             return true;
         }
-        else if (i < key.length - 1) {
+        else if (i < key.length - 1 && posicao + 1 < textoCriptografado.length) {
             return verificarCripto(textoCriptografado, posicao+=1, key, i+=1);
         };
     };
@@ -127,5 +127,6 @@ function descriptografar() {
 };
 
 function copiar() {
-
+    let texto = textoSaida.innerHTML;
+    navigator.clipboard.writeText(texto);
 };

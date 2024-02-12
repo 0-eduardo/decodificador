@@ -2,6 +2,14 @@ let textoEntrada = document.getElementById('textoEntrada');
 let textoSaida = document.getElementById('textoSaida');
 let mensagemNaoEncontrada = document.getElementById('mensagemNaoEncontrada');
 
+function validar(str) {
+    let letraUnicode = str.charCodeAt(0);
+
+    if (letraUnicode >= 97 && letraUnicode <= 122) {
+        return true;
+    }
+}
+
 function criptografar() {
     let textoDescriptografado = textoEntrada.value;
     let textoCriptografado = '';
@@ -10,6 +18,11 @@ function criptografar() {
 
     for (let i = 0; i < strLength; i++) {
         let letra = textoDescriptografado[i];
+        
+        if (letra != ' ' && !validar(letra)) {
+            alert('Texto inválido!\nUse apenas letras minúsculas e sem acento.\nNão utilize caracteres especiais.');
+            return;
+        }
         
         switch (letra) {
             case 'a':
@@ -36,9 +49,10 @@ function criptografar() {
 }
 
 function descriptografar() {
-    let texto = textoEntrada.value;
+    let textoCriptografado = textoEntrada.value;
+    let textoDescriptografado = '';
 
-    mensagemNaoEncontrada.innerHTML = 'descriptografado';
+    mensagemNaoEncontrada.innerHTML = textoCriptografado;
 }
 
 function copiar() {

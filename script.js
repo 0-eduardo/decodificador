@@ -1,6 +1,7 @@
 let textoEntrada = document.getElementById('textoEntrada');
 let textoSaida = document.getElementById('textoSaida');
 let mensagemNaoEncontrada = document.getElementById('mensagemNaoEncontrada');
+let copiarBotao = document.getElementById('copiar');
 
 let pairs = {
     'a': 'ai',
@@ -10,7 +11,8 @@ let pairs = {
     'u': 'ufat'
 };
 
-
+copiarBotao.style.display = 'none';
+textoSaida.style.display = 'none';
 
 function validar(str) {
     let letraUnicode = str.charCodeAt(0);
@@ -45,7 +47,9 @@ function criptografar() {
     textoSaida.innerHTML = '';
 
     if (strLength == 0) {
-        mensagemNaoEncontrada.style.display = 'initial';
+        mensagemNaoEncontrada.style.display = 'inherit';
+        copiarBotao.style.display = 'none';
+        textoSaida.style.display = 'none';
         return;
     };
 
@@ -53,8 +57,10 @@ function criptografar() {
         let letra = textoDescriptografado[i];
         
         if (letra != ' ' && !validar(letra)) {
-            mensagemNaoEncontrada.style.display = 'initial';
+            mensagemNaoEncontrada.style.display = 'inherit';
             alert('Texto inválido!\nUse apenas letras minúsculas e sem acento.\nNão utilize caracteres especiais.');
+            copiarBotao.style.display = 'none';
+            textoSaida.style.display = 'none';
             return;
         };
       
@@ -66,8 +72,10 @@ function criptografar() {
         };
     };
 
+    textoSaida.style.display = 'initial';
     textoSaida.innerHTML = textoCriptografado;
     mensagemNaoEncontrada.style.display = 'none';
+    copiarBotao.style.display = 'initial';
 };
 
 function descriptografar() {
@@ -77,7 +85,9 @@ function descriptografar() {
     textoSaida.innerHTML = '';
 
     if (strLength == 0) {
-        mensagemNaoEncontrada.style.display = 'initial';
+        mensagemNaoEncontrada.style.display = 'inherit';
+        copiarBotao.style.display = 'none';
+        textoSaida.style.display = 'none';
         return;
     };
 
@@ -86,8 +96,10 @@ function descriptografar() {
         let keyNotFound = true;
         
         if (letra != ' ' && !validar(letra)) {
-            mensagemNaoEncontrada.style.display = 'initial';
+            mensagemNaoEncontrada.style.display = 'inherit';
             alert('Texto inválido!\nUse apenas letras minúsculas e sem acento.\nNão utilize caracteres especiais.');
+            copiarBotao.style.display = 'none';
+            textoSaida.style.display = 'none';
             return;
         };
 
@@ -120,8 +132,10 @@ function descriptografar() {
         };
     };
 
+    textoSaida.style.display = 'initial';
     textoSaida.innerHTML = textoDescriptografado;
     mensagemNaoEncontrada.style.display = 'none';
+    copiarBotao.style.display = 'initial';
 };
 
 function copiar() {

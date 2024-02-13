@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Decodificador de texto</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -14,23 +15,25 @@
     <main>
 
         <div class="entrada">
-            <input type="text" placeholder="Digite seu texto" spellcheck="false" id="textoEntrada">
+            <textarea name="" id="textoEntrada" cols="30" rows="10" placeholder="Digite seu texto"></textarea>
 
-            <p><img src="images/ponto-interrogacao.png" alt="ponto de interrogacao">Apenas letras minúsculas e sem acento.</p>
+            <p class="aviso"><img src="images/ponto-interrogacao.png" alt="ponto de interrogacao" class="avisoImg"> Apenas letras minúsculas e sem acento.</p>
 
-            <button class="criptografar" onclick="criptografar()">Criptografar</button>
-            <button class="descriptografar" onclick="descriptografar()">Descriptografar</button>
+            <div class="botoes">
+                <button class="botao" id="criptografar" onclick="criptografar()">Criptografar</button>
+                <button class="botao" id="descriptografar" onclick="descriptografar()">Descriptografar</button>
+            </div>
         </div>
         
         <div class="saida">
             <div id="mensagemNaoEncontrada">
-                <img src="images/sem-mensagem.png" alt="">
-                <h1>Nenhuma mensagem encontrada</h1>
-                <p>Digite um texto que você deseja criptografar ou descriptografar.</p>
+                <img src="images/sem-mensagem.png" alt="" class="sem-mensagem">
+                <h1 class="h1SemMensagem">Nenhuma mensagem encontrada</h1>
+                <p class="pSemMensagem">Digite um texto que você deseja criptografar ou descriptografar.</p>
             </div>
 
-            <p id="textoSaida"></p>
-            <button class="copiar" onclick="copiar()">Copiar</button>
+            <textarea name="" id="textoSaida" cols="30" rows="10"></textarea>
+            <button class="botao" id="copiar" onclick="copiar()">Copiar</button>
         </div>
     </main>
 
